@@ -1,35 +1,30 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Listeners } from "./components/listeners";
+import { ReactiveForm } from "./components/reactive-form";
+import { SignUp } from "./components/sign-up";
+import { Separator } from "./components/ui/separator";
+import Typography from "./components/ui/typography";
+import { UserCard } from "./components/user-card";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="w-full h-full bg-background flex flex-col items-center py-5">
+      <Typography
+        variant={"h1"}
+        className="my-6 text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-yellow-600"
+      >
+        TanStack Form Tutorial
+      </Typography>
+      <div className="flex flex-col space-y-5">
+        <SignUp />
+        <Separator />
+        <ReactiveForm />
+        <Separator />
+        <UserCard />
+        <Separator />
+        <Listeners />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
